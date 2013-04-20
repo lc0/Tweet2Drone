@@ -35,6 +35,14 @@ $(document).ready(function(){
     
 });
 
+
+$('#toggle-settings').on('click', function(e) {
+
+  $('#settings').toggle();
+
+
+})
+
     
 var Notifications = (function () {
 
@@ -96,14 +104,14 @@ function displayNavData(navdata) {
 }
 
 function onDroneConnected() {
-  Notifications.notify('success', 'Drone connected');
+  Notifications.notify('success', 'Drone connected! Have fun!');
 
 
 }
 
 function onDroneConnectionFailed() {
   if(!failed) {
-    Notifications.notify('error', "Connectioned failed - Are you attached to the Drone's Wifi network?");
+    Notifications.notify('error', "Connection failed - Are you attached to the Drone's Wifi network?");
     failed = true;
   }
 }
