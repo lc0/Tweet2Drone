@@ -124,7 +124,7 @@ function searchTwitter(query) {
 
 $('#start').click(function() {
     DRONE.API.init(onDroneConnected, onDroneConnectionFailed);
-    searchTwitter('%23drone');
+    searchTwitter(handler.replace('#', '%23'));
 });
 
 
