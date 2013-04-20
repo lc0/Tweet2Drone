@@ -113,7 +113,7 @@ for (var i = tweets.length - 1; i >= 0; i--) {
   DRONE.TweetQueue.push(tweets[i]);
 };
 
-DRONE.TweetQueue.loop()
+DRONE.TweetQueue.init()
 
 
 

@@ -6,20 +6,17 @@ DRONE.TweetQueue = do ->
 	running = false
 	speed = 3000
 
-
-	push : (item) ->
-		queue.push(item)
-
-	cancel : ->
+	cancel = ->
 		if running
 			clearInterval(running)
+			running = false
 
 
-	loop : ->
+	main = ->
+	 	Notifications.notify('success', 'Started!');
 		unless running
-
+			running = true
 			running = setInterval ->
-				oldlength = queue.length
 				msg = queue.pop()
 
 				if msg
@@ -37,4 +34,10 @@ DRONE.TweetQueue = do ->
 			, 
 			speed
 
+	init : ->
+		# bind handlers
+		$('#start').bind('click', main)
+		$('#cancel').bind('click', cancel)
 
+	push : (item) ->
+		queue.push(item)
