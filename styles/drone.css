@@ -114,6 +114,10 @@ p {
   padding: 30px;
 }
 
+#settings {
+  margin-top:20px;
+}
+
 .btn {
   background:#2C3E50;
   padding:10px 20px;
@@ -122,13 +126,17 @@ p {
 
 }
 
-input {
-  padding: 10px;
+
+label:after {
+  clear:both;
 }
 
-.btn:hover {
-  background:#2980B9;
+input {
+  padding: 10px;
+  border:0px;
+  margin: 10px 0px;
 }
+
 
 .pull-left {
   float:left;
@@ -136,4 +144,16 @@ input {
 
 .pull-right {
   float:right;
+}
+
+.hidden {
+  display: none;
+}
+
+.btn.success {
+  background: #27AE60;
+}
+
+.btn.error {
+  background: #E74C3C;
 }

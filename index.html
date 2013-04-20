@@ -19,11 +19,22 @@
 
 
   <div id="content">
-      <div>Enter the Drone's Twitter handler.</div>
-        <div class="handlerInput">
-          <input type="text" id="twtHandler" value="Drone's Twitter handler'"/><br>
-        </div>
-      <button class="btn" id="saveHandler">Save Hanlder</button>
+
+      <button id="start" class="btn">Start</button>
+      <button id="toggle-settings" class="btn">Settings</button>
+      <button id="cancel" class="btn pull-right">Cancel</button>
+        
+
+
+      <div class="hidden" id="settings">
+         
+            <div class="handlerInput">
+              <label for="">Enter the Drone's Twitter handle</label> <br />
+              <input type="text" id="twtHandler" value="Drone's Twitter handler'"/><br>
+            </div>
+          <button class="btn" id="saveHandler">Save</button>
+      </div>
+
 
   </div>
 
