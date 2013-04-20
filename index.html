@@ -19,7 +19,8 @@
 
       <button id="start" class="btn">Start</button>
       <button id="toggle-settings" class="btn">Settings</button>
-      <button id="cancel" class="btn pull-right">Cancel</button>
+      <button id="cancel" class="btn pull-right">Emergency Stop</button>
+      <div class="clear"></div>
         
 
 
@@ -32,19 +33,14 @@
           <button class="btn" id="saveHandler">Save</button>
       </div>
 
-
+      <div id="battery">
+        <div id="battery_label">Battery</div>
+        <div id="battery_state"></div>
+      </div>
+      
+      <div id="queue"></div>
+  
   </div>
-
-  <div id="queue"></div>
-
-  <div id="message">
-  <div id="battery">
-    <div id="battery_label">Battery</div>
-    <div id="battery_state"></div>
-  </div>
-  <button class="btn" id="emergencyStop">Emergency Stop</button>
-
-
 
   <script src="lib/jquery-2.0.0.min.js"></script>
 

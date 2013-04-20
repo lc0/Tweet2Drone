@@ -34,15 +34,13 @@ p {
 }
 
 
-#emergencyStop {
-  position:absolute;
-  bottom: 140px; right: 20px;
-  background: #E74C3C;
+#cancel {
+  background: #B41909;
   color:#fff;
 }
 
-#emergencyStop:hover {
-  background: #B41909;
+#cancel:hover {
+  background: #E74C3C;
 }
 
 #battery {
