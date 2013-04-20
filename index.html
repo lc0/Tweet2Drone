@@ -4,11 +4,19 @@
     <meta charset="utf-8">
     <title>Twitter2Drone</title>
     <link href="styles/drone.css" rel="stylesheet"></link>
+    <script type="text/javascript" src="lib/jquery-2.0.0.min.js"></script>
 </head>
 <body>
   <div id="notifications"></div>
   <h1>Twitter2Drone</h1>
-
+  
+  <div>Enter the Drone's Twitter handler.</div>
+    <div class="handlerInput">
+	    <input type="text" id="twtHandler" value="Drone's Twitter handler'"/><br>
+    </div>
+  <button id="saveHandler">Save Hanlder</button>
+  <div id="message">
+  <!--
   <p id="message">Connect to the AR.Drone's Wifi network. Then press A
     on your gamepad to get started.</p>
   <p id="instructions">
@@ -16,7 +24,7 @@
     <strong>Right shoulder button:</strong> Take off<br/>
     <strong>Left stick:</strong> move<br/>
     <strong>Right stick:</strong> rotate left-right / raise and lower<br/></p>
-
+   -->
   <div id="battery">
     <div id="battery_label">Battery</div>
     <div id="battery_state"></div>
