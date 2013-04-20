@@ -6,16 +6,34 @@ var failed = false;
 window.MediaSource = window.MediaSource || window.WebKitMediaSource;
 var videoSource = new MediaSource();
 
-
-
-
 var interval;
+var handler = "";
 
 $(document).ready(function(){
-    console.log($('#twtHandler').text());
-    getHandler();
+    
+    // Get handler from storage
+    chrome.storage.sync.get('handler', function(result){
+        handler = result.handler;
+        $('#twtHandler').val(handler);
+    });
 
-    $('#saveHandler').click(saveHandler);
+    $('#saveHandler').click(function() {
+        // Get the Twitter handler value
+        var handlerVal = $('#twtHandler').val();
+        console.log(handlerVal);
+        // Check that it's not empty
+        if(!handlerVal && handlerVal === ""){
+            console.log("error");
+            //message('Error: No handler specified');
+            return;
+        }
+        // Save it using the Chrome storage API
+        chrome.storage.sync.set({'handler': handlerVal}, function(){
+            console.log("success");
+            // Notify about success
+            //message('Twitter handler saved!');
+        })
+    });
     
 });
 
@@ -48,33 +66,6 @@ function log(msg) {
   logEl.textContent = msg;
 //  logEl.scrollTop = 10000000;
 }
-
-
-function setHandler() {
-    // Get the Twitter handler value
-    var handlerVal = $('#twtHandler').value;
-    // Check that it's not empty
-    if(!handlerVal && handlerVal === ""){
-        message('Error: No handler specified');
-        return;
-    }
-    // Save it using the Chrome storage API
-    chrome.storage.sync.set({'handler': handlerVal}, function(){
-        // Notify about success
-        message('Twitter handler saved!');
-    })
-}
-
-function getHandler() {
-    var handlerVal = "";
-    chrome.storage.sync.get('handler', function(result){
-        hanlderVal = result.handler;
-        console.log(handlerVal);
-    })
-    $('#twtHandler').text(handlerVal)
-}
-
-
 
 function message(msg){
     var msgBox = $('#message');
