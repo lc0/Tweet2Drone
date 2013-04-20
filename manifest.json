@@ -7,8 +7,10 @@
       "scripts": ["main.js"]
     }
   },
-  "permissions": [{
-    "socket": [
+  "icons": {"16": "twt2drone-16.png", "128": "twt2drone-128.png"},
+  "permissions": [
+    "storage",
+    {"socket": [
       "udp-bind::5554",
       "udp-send-to::5554",
 
