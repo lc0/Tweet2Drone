@@ -10,6 +10,13 @@ var interval;
 var handler = "";
 
 $(document).ready(function(){
+
+    // Emergency stop button
+    $('#cancel').click(function() {
+        DRONE.API.shutdown();
+        Notifications.notify('success','Killed connection to Drone!');
+    });
+    
     
     // Get handler from storage
     chrome.storage.sync.get('handler', function(result){
