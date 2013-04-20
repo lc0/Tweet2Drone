@@ -19,7 +19,7 @@ $(document).ready(function(){
         Notifications.notify('success','Killed connection to Drone!');
     });
 
-    
+
     // Get handler from storage
     chrome.storage.sync.get('handler', function(result){
         handler = result.handler;
@@ -41,7 +41,7 @@ $(document).ready(function(){
             Notifications.notify('success','Twitter handle saved successfully!');
         })
     });
-    
+
 });
 
 
@@ -52,7 +52,7 @@ $('#toggle-settings').on('click', function(e) {
 
 })
 
-    
+
 
 function clearLog() {
   //
@@ -107,22 +107,33 @@ function onDroneConnectionFailed() {
   }
 }
 
-
+function searchTwitter(query) {
+    $.ajax({
+        url: 'http://search.twitter.com/search.json?q=' + query,
+        //dataType: 'jsonp',
+        success: function(data) {
+            console.log(data['results']);
+            for (var i = data['results'].length - 1; i >= 0; i--) {
+                DRONE.TweetQueue.push(data['results'][i]['text']);
+                console.log(data['results'][i]['text']);
+            }
+        }
+    });
+}
 
 
 $('#start').click(function() {
     DRONE.API.init(onDroneConnected, onDroneConnectionFailed);
+    searchTwitter('%23drone');
 });
 
 
-
+/*
 var tweets = ['takeoff', 'rotateLeftRight', 'sup', 'land', 'dgsdh'];
 
 for (var i = tweets.length - 1; i >= 0; i--) {
   DRONE.TweetQueue.push(tweets[i]);
 };
-
-
-
+*/
 
 
