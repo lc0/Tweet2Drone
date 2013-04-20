@@ -23,15 +23,13 @@ $(document).ready(function(){
         console.log(handlerVal);
         // Check that it's not empty
         if(!handlerVal && handlerVal === ""){
-            console.log("error");
-            //message('Error: No handler specified');
+            Notifications.notify('error','Whoopsie!');
             return;
         }
         // Save it using the Chrome storage API
         chrome.storage.sync.set({'handler': handlerVal}, function(){
-            console.log("success");
             // Notify about success
-            //message('Twitter handler saved!');
+            Notifications.notify('success','Twitter handler saved successfully!');
         })
     });
     
@@ -73,12 +71,6 @@ function clearLog() {
 function log(msg) {
   console.log(msg);
 //  logEl.scrollTop = 10000000;
-}
-
-function message(msg){
-    var msgBox = $('#message');
-    msgBox.text(msg);
-    msgBox.fadeOut(800);
 }
 
 function displayNavData(navdata) {
