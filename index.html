@@ -4,23 +4,36 @@
     <meta charset="utf-8">
     <title>Twitter2Drone</title>
     <link href="styles/drone.css" rel="stylesheet"></link>
-    <script type="text/javascript" src="lib/jquery-2.0.0.min.js"></script>
+
 </head>
 <body>
   <div id="notifications"></div>
-  <h1>Twitter2Drone</h1>
-  
-  <div>Enter the Drone's Twitter handler.</div>
-    <div class="handlerInput">
-	    <input type="text" id="twtHandler" value="Drone's Twitter handler'"/><br>
-    </div>
-  <button id="saveHandler">Save Hanlder</button>
+
+  <header id="header">
+      
+        <h1>Twitter2Drone</h1>
+        <img src="img/bird.png" width="100" alt="">
+
+
+  </header>
+
+
+  <div id="content">
+      <div>Enter the Drone's Twitter handler.</div>
+        <div class="handlerInput">
+          <input type="text" id="twtHandler" value="Drone's Twitter handler'"/><br>
+        </div>
+      <button class="btn" id="saveHandler">Save Hanlder</button>
+
+  </div>
+
   <div id="message">
   <div id="battery">
     <div id="battery_label">Battery</div>
     <div id="battery_state"></div>
   </div>
 
+  <script src="lib/jquery-2.0.0.min.js"></script>
 
   <script src="lib/Util.js"></script>
   <script src="lib/NavData.js"></script>
