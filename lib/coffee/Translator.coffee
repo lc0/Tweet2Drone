@@ -7,6 +7,7 @@ DRONE.Translator = do ->
 			DRONE.API.takeoff()
 		land : ->
 			DRONE.API.land()
+		
 
 
 	# private

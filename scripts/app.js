@@ -7,7 +7,29 @@ var failed = false;
 window.MediaSource = window.MediaSource || window.WebKitMediaSource;
 var videoSource = new MediaSource();
 
+
+
+
 var interval;
+
+
+var Notifications = (function () {
+
+        var el = document.getElementById('notifications');
+
+        var types = {
+          error : 'error',
+          success : 'success'
+        }
+
+        return {
+          notify : function(type, msg) {
+            el.textContent = msg;
+            el.className = types[type]; 
+          }
+        }
+
+})();
 
 
 
@@ -51,14 +73,14 @@ function displayNavData(navdata) {
 }
 
 function onDroneConnected() {
-  console.log('Drone connected');
+  Notifications.notify('success', 'Drone connected');
 
 
 }
 
 function onDroneConnectionFailed() {
   if(!failed) {
-    log("Connectioned failed - Are you attached to the Drone's Wifi network?");
+    Notifications.notify('error', "Connectioned failed - Are you attached to the Drone's Wifi network?");
     failed = true;
   }
 }

@@ -79,3 +79,14 @@ p {
 #orientation_drone {
   display: block;
 }
+
+
+.error {
+  background: red;
+  color:#fff;
+}
+
+.success {
+  background: green;
+
+}
