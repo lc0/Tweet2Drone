@@ -2,6 +2,7 @@
   "manifest_version": 2,
   "version": "0.1",
   "name": "Twitter2Drone",
+  "description":"A simple app that let's you controll your Parrot AR Drone 2.0 via Twitter.",
   "app": {
     "background": {
       "scripts": ["main.js"]

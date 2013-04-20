@@ -1,7 +1,6 @@
 var active = false;
 var logEl = document.getElementById('log');
 var commandLog = document.getElementById('commands');
-var message = document.getElementById('message');
 var video = document.getElementById('live');
 var failed = false;
 window.MediaSource = window.MediaSource || window.WebKitMediaSource;
@@ -12,7 +11,15 @@ var videoSource = new MediaSource();
 
 var interval;
 
+$(document).ready(function(){
+    console.log($('#twtHandler').text());
+    getHandler();
 
+    $('#saveHandler').click(saveHandler);
+    
+});
+
+    
 var Notifications = (function () {
 
         var el = document.getElementById('notifications');
@@ -40,6 +47,39 @@ function clearLog() {
 function log(msg) {
   logEl.textContent = msg;
 //  logEl.scrollTop = 10000000;
+}
+
+
+function setHandler() {
+    // Get the Twitter handler value
+    var handlerVal = $('#twtHandler').value;
+    // Check that it's not empty
+    if(!handlerVal && handlerVal === ""){
+        message('Error: No handler specified');
+        return;
+    }
+    // Save it using the Chrome storage API
+    chrome.storage.sync.set({'handler': handlerVal}, function(){
+        // Notify about success
+        message('Twitter handler saved!');
+    })
+}
+
+function getHandler() {
+    var handlerVal = "";
+    chrome.storage.sync.get('handler', function(result){
+        hanlderVal = result.handler;
+        console.log(handlerVal);
+    })
+    $('#twtHandler').text(handlerVal)
+}
+
+
+
+function message(msg){
+    var msgBox = $('#message');
+    msgBox.text(msg);
+    msgBox.fadeOut(800);
 }
 
 function displayNavData(navdata) {
