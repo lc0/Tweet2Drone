@@ -15,15 +15,10 @@ $(document).ready(function(){
     $('#cancel').click(function() {
         DRONE.API.land();
         DRONE.API.shutdown();
+        DRONE.TweetQueue.cancel();
         Notifications.notify('success','Killed connection to Drone!');
     });
 
-
-
-    $('#cancel').click(function() {
-        DRONE.TweetQueue.cancel();
-    });
-    
     
     // Get handler from storage
     chrome.storage.sync.get('handler', function(result){
@@ -121,7 +116,7 @@ $('#start').click(function() {
 
 
 
-var tweets = ['hello', 'land', 'sup', 'shutdown', 'takeoff'];
+var tweets = ['takeoff', 'blabla', 'sup', 'land', 'dgsdh'];
 
 for (var i = tweets.length - 1; i >= 0; i--) {
   DRONE.TweetQueue.push(tweets[i]);
