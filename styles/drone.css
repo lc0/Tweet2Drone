@@ -33,6 +33,18 @@ p {
   display: none; width: 400px;
 }
 
+
+#emergencyStop {
+  position:absolute;
+  bottom: 140px; right: 20px;
+  background: #E74C3C;
+  color:#fff;
+}
+
+#emergencyStop:hover {
+  background: #B41909;
+}
+
 #battery {
   height: 100px; width: 50px; 
   position: absolute;
