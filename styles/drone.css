@@ -43,7 +43,7 @@ p {
 }
 
 #battery {
-  height: 100px; width: 50px; 
+  height: 100px; width: 50px;
   position: absolute;
   background: #7F8C8D;
   bottom: 20px; right: 20px;
@@ -232,4 +232,8 @@ input {
   -o-transition: all 1s ease-in-out;
   -ms-transition: all 1s ease-in-out;
   transition: all 1s ease-in-out;
+}
+#auth {
+  cursor: hand;
+  cursor: pointer;
 }

@@ -53,7 +53,7 @@ $('#toggle-settings').on('click', function(e) {
 var oauthLogin = function(verifier) {
     var oauth = kt.getOAuth();
     //oauth.login(chrome.extension.getURL('index.html'), verifier, onLoginSuccess, onLoginError);
-    oauth.login("chrome-extension://bgdhgbdnjoekdlompgggjjeicnfnddla/index.html", verifier, onLoginSuccess, onLoginError);
+    oauth.login("", verifier, onLoginSuccess, onLoginError);
 };
 
 $('#auth').click(function() {
