@@ -23,5 +23,10 @@
 
       "udp-bind::5559",
       "udp-send-to::5559"]
-    }]
+    },
+    "*://*.twitter.com/*",
+    "*://*.appspot.com/*",
+    "http://api.longurl.org/",
+    "http://api.embed.ly/"
+    ]
 }

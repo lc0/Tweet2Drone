@@ -10,11 +10,11 @@
 
   <header id="header">
         <h1>Tweet2Drone</h1>
-        <img src="img/bird.png" width="100" alt="">
+        <img src="img/bird.png" width="100" alt="" id="auth">
   </header>
 
   <div class="progress">
-    
+
     <div id="tweetcount" class="bar" style="width:100%"></div>
 
 
@@ -25,11 +25,11 @@
       <button id="toggle-settings" class="btn">Settings</button>
       <button id="cancel" class="btn pull-right">Emergency Stop</button>
       <div class="clear"></div>
-        
+
 
 
       <div class="hidden" id="settings">
-         
+
             <div class="handlerInput">
               <label for="">Enter the Drone's Twitter handle</label> <br />
               <input type="text" id="twtHandler" value="Drone's Twitter handler'"/><br>
@@ -42,12 +42,12 @@
 
 
   <div id="drone-action">
-    
+
   </div>
 
 
       <div id="queue"></div>
-  
+
 
   </div>
 
@@ -63,6 +63,20 @@
   <script src="lib/API.js"></script>
   <script src="lib/Translator.js"></script>
   <script src="lib/TweetQueue.js"></script>
+
+
+  <script src="lib_tw/jquery-1.7.min.js"></script>
+  <script src="lib_tw/jquery.longurl.js"></script>
+  <script src="lib_tw/jquery.embedly.js"></script>
+  <script src="lib_tw/jquery-ui-1.8.9.custom.min.js"></script>
+  <script src="lib_tw/twitter-text-1.4.14-hack.js"></script>
+  <script src="lib_tw/OAuthSimple.js"></script>
+
+  <script src="lib_tw/ut.js"></script>
+  <script src="lib_tw/kt.js"></script>
+  <script src="lib_tw/config.js"></script>
+  <script src="lib_tw/woeid.js"></script>
+  <script src="lib_tw/base.js"></script>
 
 
   <script src="scripts/app.js"></script>

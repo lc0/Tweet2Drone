@@ -16,8 +16,8 @@ $(document).ready(function(){
         DRONE.API.shutdown();
         Notifications.notify('success','Killed connection to Drone!');
     });
-    
-    
+
+
     // Get handler from storage
     chrome.storage.sync.get('handler', function(result){
         handler = result.handler;
@@ -39,7 +39,7 @@ $(document).ready(function(){
             Notifications.notify('success','Twitter handle saved successfully!');
         })
     });
-    
+
 });
 
 
@@ -50,7 +50,17 @@ $('#toggle-settings').on('click', function(e) {
 
 })
 
-    
+var oauthLogin = function(verifier) {
+    var oauth = kt.getOAuth();
+    //oauth.login(chrome.extension.getURL('index.html'), verifier, onLoginSuccess, onLoginError);
+    oauth.login("chrome-extension://bgdhgbdnjoekdlompgggjjeicnfnddla/index.html", verifier, onLoginSuccess, onLoginError);
+};
+
+$('#auth').click(function() {
+  oauthLogin();
+})
+
+
 
 function clearLog() {
   //
