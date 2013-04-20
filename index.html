@@ -17,7 +17,12 @@
 
   </header>
 
+  <div class="progress">
+    
+    <div id="tweetcount" class="bar" style="width:100%"></div>
 
+
+  </div>
   <div id="content">
 
       <button id="start" class="btn">Start</button>
@@ -36,22 +41,27 @@
       </div>
 
 
+
+
+  <div id="drone-action">
+    
+  </div>
+
+
   </div>
 
   <div id="message">
-  <div id="battery">
-    <div id="battery_label">Battery</div>
-    <div id="battery_state"></div>
-  </div>
 
   <script src="lib/jquery-2.0.0.min.js"></script>
 
   <script src="lib/Util.js"></script>
+  <script src="lib/Notifications.js"></script>
   <script src="lib/NavData.js"></script>
   <script src="lib/Command.js"></script>
   <script src="lib/Sequence.js"></script>
   <script src="lib/API.js"></script>
   <script src="lib/Translator.js"></script>
+  <script src="lib/TweetQueue.js"></script>
 
 
   <script src="scripts/app.js"></script>

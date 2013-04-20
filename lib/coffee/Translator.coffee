@@ -4,7 +4,7 @@ DRONE.Translator = do ->
 
 	commandMap =
 		takeoff : ->
-			DRONE.API.takeoff()
+			DRONE.API.takeOff()
 		land : ->
 			DRONE.API.land()
 
@@ -22,16 +22,16 @@ DRONE.Translator = do ->
 
 
 	# public
-	translate : (msg) ->
+	translate : (opts) ->
 
 		# sanitize message
+		msg = opts.msg
 
 		unless commandMap[msg]?
-			return notSupportedError(msg)
-		
-		
-
+			return opts.error?(notSupportedError(msg))
+			
 		processMessage(msg)
+		opts.success?()
 
 
 

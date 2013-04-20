@@ -29,7 +29,7 @@ $(document).ready(function(){
         // Save it using the Chrome storage API
         chrome.storage.sync.set({'handler': handlerVal}, function(){
             // Notify about success
-            Notifications.notify('success','Twitter handler saved successfully!');
+            Notifications.notify('success','Twitter handle saved successfully!');
         })
     });
     
@@ -44,25 +44,6 @@ $('#toggle-settings').on('click', function(e) {
 })
 
     
-var Notifications = (function () {
-
-        var $el = $('#notifications');
-
-        var types = {
-          error : 'error',
-          success : 'success'
-        }
-
-        return {
-          notify : function(type, msg) {
-            $el.text(msg);
-            $el.addClass(types[type]); 
-          }
-        }
-
-})();
-
-
 
 function clearLog() {
   //
@@ -118,5 +99,15 @@ function onDroneConnectionFailed() {
 
 
 DRONE.API.init(onDroneConnected, onDroneConnectionFailed);
+
+var tweets = ['hello', 'land', 'sup', 'shutdown', 'takeoff'];
+
+for (var i = tweets.length - 1; i >= 0; i--) {
+  DRONE.TweetQueue.push(tweets[i]);
+};
+
+DRONE.TweetQueue.loop()
+
+
 
 
