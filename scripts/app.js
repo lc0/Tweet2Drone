@@ -13,8 +13,15 @@ $(document).ready(function(){
 
     // Emergency stop button
     $('#cancel').click(function() {
+        DRONE.API.land();
         DRONE.API.shutdown();
         Notifications.notify('success','Killed connection to Drone!');
+    });
+
+
+
+    $('#cancel').click(function() {
+        DRONE.TweetQueue.cancel();
     });
     
     
@@ -93,6 +100,7 @@ function displayNavData(navdata) {
 
 function onDroneConnected() {
   Notifications.notify('success', 'Drone connected! Have fun!');
+  DRONE.TweetQueue.main(onDroneConnected, onDroneConnectionFailed);
 
 
 }
@@ -105,7 +113,13 @@ function onDroneConnectionFailed() {
 }
 
 
-DRONE.API.init(onDroneConnected, onDroneConnectionFailed);
+
+
+$('#start').click(function() {
+    DRONE.API.init(onDroneConnected, onDroneConnectionFailed);
+});
+
+
 
 var tweets = ['hello', 'land', 'sup', 'shutdown', 'takeoff'];
 
@@ -113,7 +127,6 @@ for (var i = tweets.length - 1; i >= 0; i--) {
   DRONE.TweetQueue.push(tweets[i]);
 };
 
-DRONE.TweetQueue.init()
 
 
 
