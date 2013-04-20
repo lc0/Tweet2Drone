@@ -51,10 +51,9 @@ function displayNavData(navdata) {
 }
 
 function onDroneConnected() {
+  console.log('Drone connected');
 
-  DRONE.Gamepad.enable();
-  message.style.display = "none";
-  instructions.style.display = "block";
+
 }
 
 function onDroneConnectionFailed() {
@@ -64,12 +63,7 @@ function onDroneConnectionFailed() {
   }
 }
 
-DRONE.Gamepad.onConnected = function() {
-  commandLog.style.display = "block";
-  DRONE.API.init(onDroneConnected, onDroneConnectionFailed);
-};
 
-// start the gamepad
-gamepadSupport.init();
-DRONE.Gamepad.onConnected();
+DRONE.API.init(onDroneConnected, onDroneConnectionFailed);
+
 
