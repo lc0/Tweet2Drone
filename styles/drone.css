@@ -32,6 +32,16 @@ p {
   display: none; width: 400px;
 }
 
+
+#cancel {
+  background: #B41909;
+  color:#fff;
+}
+
+#cancel:hover {
+  background: #E74C3C;
+}
+
 #battery {
   height: 100px; width: 50px; 
   position: absolute;
@@ -160,6 +170,7 @@ input {
 .btn.error {
   background: #E74C3C;
 }
+
 
 .progress {
   height: 20px;
