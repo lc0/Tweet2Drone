@@ -1,10 +1,5 @@
 var active = false;
-var logEl = document.getElementById('log');
-var commandLog = document.getElementById('commands');
-var video = document.getElementById('live');
 var failed = false;
-window.MediaSource = window.MediaSource || window.WebKitMediaSource;
-var videoSource = new MediaSource();
 
 var interval;
 var handler = "";
@@ -29,7 +24,7 @@ $(document).ready(function(){
     $('#saveHandler').click(function() {
         // Get the Twitter handler value
         var handlerVal = $('#twtHandler').val();
-        console.log(handlerVal);
+        //console.log(handlerVal);
         // Check that it's not empty
         if(!handlerVal && handlerVal === ""){
             Notifications.notify('error','Whoopsie!');
@@ -51,17 +46,6 @@ $('#toggle-settings').on('click', function(e) {
 
 
 })
-
-
-
-function clearLog() {
-  //
-}
-
-function log(msg) {
-  console.log(msg);
-//  logEl.scrollTop = 10000000;
-}
 
 function displayNavData(navdata) {
   var
