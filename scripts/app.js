@@ -116,7 +116,7 @@ $('#start').click(function() {
 
 
 
-var tweets = ['takeoff', 'blabla', 'sup', 'land', 'dgsdh'];
+var tweets = ['takeoff', 'rotateLeftRight', 'sup', 'land', 'dgsdh'];
 
 for (var i = tweets.length - 1; i >= 0; i--) {
   DRONE.TweetQueue.push(tweets[i]);
