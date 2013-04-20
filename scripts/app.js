@@ -22,7 +22,7 @@ $(document).ready(function(){
     
 var Notifications = (function () {
 
-        var el = document.getElementById('notifications');
+        var $el = $('#notifications');
 
         var types = {
           error : 'error',
@@ -31,8 +31,8 @@ var Notifications = (function () {
 
         return {
           notify : function(type, msg) {
-            el.textContent = msg;
-            el.className = types[type]; 
+            $el.text(msg);
+            $el.addClass(types[type]); 
           }
         }
 
@@ -41,11 +41,11 @@ var Notifications = (function () {
 
 
 function clearLog() {
-  logEl.textContent = "";
+  //
 }
 
 function log(msg) {
-  logEl.textContent = msg;
+  console.log(msg);
 //  logEl.scrollTop = 10000000;
 }
 

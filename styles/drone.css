@@ -1,17 +1,15 @@
 html,
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
   background: #E2E2E2;
   color: #555;
   text-shadow: 0 1px 1px rgba(255,255,255,0.4);
   line-height: 140%;
+  padding:0px;
+  margin:0px;
 }
 
-h1 {
-  padding: 0 10px;
-  color: #333;
-  text-shadow: 0 1px 1px rgba(255,255,255,0.6);
-}
+
 
 h2 {
   margin: 15px 0 10px 0;
@@ -80,14 +78,60 @@ p {
   display: block;
 }
 
+#notifications {
+  padding:30px;
+  text-align: center;
+}
 
 .error {
-  background: red;
+  background: #E74C3C;
   color:#fff;
 }
 
 .success {
-  background: green;
+  background: #27AE60;
   color:#fff;
 
+}
+
+#header {
+  background:#2C3E50;
+  color:#fff;
+  padding:20px;
+  text-align: center;
+}
+
+#header h1 {
+  color: #95A5A6;
+  font-weight: normal;
+  font-size:32px;
+  font-weight:100;
+}
+
+#content {
+  padding: 30px;
+}
+
+.btn {
+  background:#2C3E50;
+  padding:10px 20px;
+  color: #fff;
+  border: 0px;
+
+}
+
+input {
+  padding: 10px;
+}
+
+.btn:hover {
+  background:#2980B9;
+}
+
+.pull-left {
+  float:left;
+}
+
+.pull-right {
+  float:right;
 }
