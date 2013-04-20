@@ -7,7 +7,7 @@ DRONE.Translator = do ->
 			DRONE.API.takeoff()
 		land : ->
 			DRONE.API.land()
-		
+
 
 
 	# private
@@ -16,7 +16,7 @@ DRONE.Translator = do ->
 		commandMap[msg].call()
 
 
-	notSupportedError = ->
+	notSupportedError = (msg) ->
 		return console.log("#{msg} is not supported, try one of these commands [#{command for command, fn of commandMap}]")
 
 
@@ -24,10 +24,10 @@ DRONE.Translator = do ->
 	# public
 	translate : (msg) ->
 
-		# do sanitizing with the message
+		# sanitize message
 
 		unless commandMap[msg]?
-			notSupportedError()
+			return notSupportedError(msg)
 		
 		
 
