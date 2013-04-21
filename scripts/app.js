@@ -8,6 +8,7 @@ $(document).ready(function(){
 
     // Emergency stop button
     $('#cancel').click(function() {
+        console.log("EMERGENCY STOP@@");
         DRONE.API.land();
         DRONE.API.shutdown();
         DRONE.TweetQueue.cancel();
