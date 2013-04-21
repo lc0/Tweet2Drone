@@ -24,6 +24,7 @@
       "udp-bind::5559",
       "udp-send-to::5559"]
     },
-    "*://*.twitter.com/*"
+    "*://*.twitter.com/*",
+    "*://*.twimg.com/*"
     ]
 }
