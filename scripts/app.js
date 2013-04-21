@@ -6,6 +6,12 @@ var handler = "";
 
 $(document).ready(function(){
 
+    $('#start').click(function() {
+        DRONE.API.init(onDroneConnected, onDroneConnectionFailed);
+        searchTwitter(handler.replace('#', '%23'));
+        //TODO:clear the queue before every start
+    });
+
     // Emergency stop button
     $('#cancel').click(function() {
         DRONE.API.land();
@@ -118,11 +124,4 @@ function searchTwitter(query) {
         }
     });
 }
-
-
-$('#start').click(function() {
-    DRONE.API.init(onDroneConnected, onDroneConnectionFailed);
-    searchTwitter(handler.replace('#', '%23'));
-    //TODO:clear the queue before every start
-});
 
