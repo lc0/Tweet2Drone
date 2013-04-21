@@ -125,13 +125,3 @@ $('#start').click(function() {
     searchTwitter(handler.replace('#', '%23'));
 });
 
-
-/*
-var tweets = ['takeoff', 'rotateLeftRight', 'sup', 'land', 'dgsdh'];
-
-for (var i = tweets.length - 1; i >= 0; i--) {
-  DRONE.TweetQueue.push(tweets[i]);
-};
-*/
-
-
