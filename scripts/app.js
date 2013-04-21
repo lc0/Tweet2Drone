@@ -110,7 +110,7 @@ function searchTwitter(query) {
         //dataType: 'jsonp',
         success: function(data) {
             console.log(data['results']);
-            for (var i = data['results'].length - 1; i >= 0; i--) {
+            for (var i = 0; i < data['results'].length; i++) {
                 //DRONE.TweetQueue.push(data['results'][i]['text']);
                 DRONE.TweetQueue.push({'msg': data['results'][i]['text'], 'cmd': extractCommand(data['results'][i]['text']), 'meta': data['results'][i]});
                 console.log(data['results'][i]['text']);
