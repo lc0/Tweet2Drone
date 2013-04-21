@@ -9,7 +9,7 @@
     }
   },
   "content_security_policy": "default-src 'self'; style-src 'self' 'unsafe-inline'; img-src *;",
-  "icons": {"16": "twt2drone-16.png", "128": "twt2drone-128.png"},
+  "icons": {"16": "twt2drone2-16.png", "128": "twt2drone2-128.png"},
   "permissions": [
     "storage",
     "webview",
