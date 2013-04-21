@@ -124,7 +124,7 @@ function searchTwitter(query, lastId) {
                     batchId = parseInt(data['results'][i]['id'], 10);
 
                 }
-                if (batchId > lastId) {
+                if (parseInt(data['results'][i]['id'], 10) > lastId) {
                     console.log('addind some items' + batchId + " > " + lastId);
                     console.log(batchId - lastId);
                     DRONE.TweetQueue.push({'msg': data['results'][i]['text'], 'cmd': extractCommand(data['results'][i]['text']), 'meta': data['results'][i]});
