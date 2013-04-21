@@ -9,7 +9,7 @@ $(document).ready(function(){
     // Emergency stop button
     $('#cancel').click(function() {
         DRONE.API.land();
-        setTimeout(function(){DRONE.API.shutdown();},1000});
+        setTimeout(function(){DRONE.API.shutdown();}, 1000);
         DRONE.TweetQueue.cancel();
         Notifications.notify('success','Killed connection to Drone!');
     });
