@@ -7,17 +7,23 @@ var handler = "";
 $(document).ready(function(){
 
     $('#start').click(function() {
-        DRONE.API.init(onDroneConnected, onDroneConnectionFailed);
-        searchTwitter(handler.replace('#', '%23'));
+        if(!active) {
+            active = true;
+            DRONE.API.init(onDroneConnected, onDroneConnectionFailed);
+            searchTwitter(handler.replace('#', '%23'));
+        } else {
+            Notifications.notify('error','Whoopsie, already started!');
+        }
         //TODO:clear the queue before every start
     });
 
     // Emergency stop button
     $('#cancel').click(function() {
+        active = false;
         DRONE.API.land();
         setTimeout(function(){DRONE.API.shutdown();}, 1000);
         DRONE.TweetQueue.cancel();
-        Notifications.notify('success','Killed connection to Drone!');
+        Notifications.notify('error','Killed connection to Drone!');
     });
 
 
@@ -54,39 +60,38 @@ $('#toggle-settings').on('click', function(e) {
 })
 
 function displayNavData(navdata) {
-  var
-    battery_state = document.getElementById("battery_state"),
-    perc,
-    max_altitude = document.getElementById("altitude").offsetHeight - 100,
-    altitude_img = document.getElementById("drone_alt"),
-    height,
-    roll, tilt, rotation, style,
-    orientation = document.getElementById("orientation_drone");
+    var
+        battery_state = document.getElementById("battery_state"),
+        perc,
+        max_altitude = document.getElementById("altitude").offsetHeight - 100,
+        altitude_img = document.getElementById("drone_alt"),
+        height,
+        roll, tilt, rotation, style,
+        orientation = document.getElementById("orientation_drone");
 
-  if (navdata.options) {
-    perc = navdata.options.batteryPercentage;
-    height = Math.floor(Math.min(navdata.options.altitude / 3000, 1) * max_altitude);
-    altitude_img.style.bottom = height + "px";
-    battery_state.style.height = perc + "px";
-    if (perc < 10) {
-      battery_state.innerHTML = "";
-      battery_state.style.backgroundColor = "red";
-    } else {
-      battery_state.innerHTML = perc + "%";
-      battery_state.style.backgroundColor = "green";
+    if (navdata.options) {
+        perc = navdata.options.batteryPercentage;
+        height = Math.floor(Math.min(navdata.options.altitude / 3000, 1) * max_altitude);
+        altitude_img.style.bottom = height + "px";
+        battery_state.style.height = perc + "px";
+        if (perc < 10) {
+            battery_state.innerHTML = "";
+            battery_state.style.backgroundColor = "red";
+        } else {
+            battery_state.innerHTML = perc + "%";
+            battery_state.style.backgroundColor = "green";
+        }
+        tilt = Math.floor(navdata.options.theta / 1000);
+        roll = Math.floor(navdata.options.phi / 1000);
+        rotation = Math.floor(navdata.options.psi / 1000);
+        style = "rotateX(" + tilt + "deg) rotateY(" + roll + "deg) rotateZ(" + rotation + "deg)";
+        orientation.style.webkitTransform = style;
     }
-    tilt = Math.floor(navdata.options.theta / 1000);
-    roll = Math.floor(navdata.options.phi / 1000);
-    rotation = Math.floor(navdata.options.psi / 1000);
-    style = "rotateX(" + tilt + "deg) rotateY(" + roll + "deg) rotateZ(" + rotation + "deg)";
-    orientation.style.webkitTransform = style;
-  }
 }
 
 function onDroneConnected() {
   Notifications.notify('success', 'Drone connected! Have fun!');
   DRONE.TweetQueue.main(onDroneConnected, onDroneConnectionFailed);
-
 
 }
 
