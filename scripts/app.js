@@ -91,6 +91,19 @@ function onDroneConnectionFailed() {
   }
 }
 
+function extractCommand(msg) {
+    //drop the first part of message
+    msg = msg.replace(/[^\s]+\s/,"");
+    arr = msg.match(/([^\s]+)\s?(.*)/);
+    if (arr.length == 1) {
+        return {'cmd':arr[1]};
+    }
+    else {
+        return {'cmd':arr[1], 'args': arr[2]};
+    }
+
+}
+
 function searchTwitter(query) {
     $.ajax({
         url: 'http://search.twitter.com/search.json?q=' + query,
@@ -98,7 +111,8 @@ function searchTwitter(query) {
         success: function(data) {
             console.log(data['results']);
             for (var i = data['results'].length - 1; i >= 0; i--) {
-                DRONE.TweetQueue.push(data['results'][i]['text']);
+                //DRONE.TweetQueue.push(data['results'][i]['text']);
+                DRONE.TweetQueue.push({'msg': data['results'][i]['text'], 'cmd': extractCommand(data['results'][i]['text'])});
                 console.log(data['results'][i]['text']);
             }
         }
