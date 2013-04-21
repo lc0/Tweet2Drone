@@ -9,7 +9,7 @@ DRONE.TweetQueue = do ->
 
 	cancel : ->
 		if running
-			clearInterval(running)
+			clearInterval(interval)
 			running = false
 
 
