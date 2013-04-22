@@ -43,7 +43,7 @@ p {
 }
 
 #battery {
-  height: 100px; width: 50px; 
+  height: 100px; width: 50px;
   position: absolute;
   background: #7F8C8D;
   bottom: 20px; right: 20px;
@@ -223,6 +223,8 @@ input {
 #drone-action {
   margin-top:20px;
   width:400px;
+  overflow-y: scroll;
+  height: 400px;
 }
 .drone-action {
   padding: 10px;
